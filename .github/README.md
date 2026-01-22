@@ -6,7 +6,7 @@ Every script and build file used in database application development is here. In
 ## Database runs on MySQL & MariaDB
 This is a fast, reliable processing application with detailed logging and two stages of data parsing.
 
-First stage is performed in `LOAD DATA LOCAL INFILE` statements with file format data-driven selection of LOAD settings and load_ staging tables.
+First stage is performed in `LOAD DATA LOCAL INFILE` statements with "log format" data-driven selection of LOAD settings and load_ staging tables.
 
 Second stage is performed in parsing modules: `parse_access_apache, parse_access_nginx, parse_error_apache, parse_error_nginxprocess_access_parse` 
 
