@@ -4,21 +4,19 @@
 Every script and build file used in database application development is here. Individual Function and Procedure files make applying modifications much simplier. The Python build script assembles hundreds of SQL filess together into the single `build_http_logs_schema.sql` file that creates the entire MySQL schema and is included in the Python application repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
 
 ## Database runs on MySQL & MariaDB
+Python handles polling of log file folders and executing Database LOAD DATA, Stored Procedures, Stored Functions and SQL Statements. Python drives the application but MySQL or MariaDB does all Data Manipulation & Processing.
+
 This is a fast, reliable processing application with detailed logging and two stages of data parsing.
 
 First stage is performed in `LOAD DATA LOCAL INFILE` statements with data-driven "log format" selection of LOAD settings and load_ staging tables.
 
-Second stage is performed in parsing modules: `parse_access_apache, parse_access_nginx, parse_error_apache, parse_error_nginxprocess_access_parse` 
+Second stage is performed in parsing modules: `parse_access_apache`, `parse_access_nginx`, `parse_error_apache`, `parse_error_nginx`
 
 HTTP Access and Error data normalization and import is done in MySQL modules: `import_access_apache, import_access_nginx, import_error_apache, import_error_nginx`
 
 Client IP GeoData is retrieved with Python. Data normalization & import is done in MySQL module: `normalize_client`
 
 User Agent String is parsed with Python. Data normalization & import is done in MySQL module: `normalize_useragent`
-
-Access and Error data is imported and normalized in modules: `import_access_apache, import_access_nginx, import_error_apache, import_error_nginx` Stored Procedures.
-
-Python handles polling of log file folders and executing Database LOAD DATA, Stored Procedures, Stored Functions and SQL Statements. Python drives the application but MySQL or MariaDB does all Data Manipulation & Processing.
 
 Application determines what files have been processed using `import_file` TABLE.
 
