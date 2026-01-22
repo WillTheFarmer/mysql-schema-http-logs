@@ -6,15 +6,15 @@ Every script and build file used in database application development is here. In
 ## Database runs on MySQL & MariaDB
 This is a fast, reliable processing application with detailed logging and two stages of data parsing.
 
-First stage is performed in `LOAD DATA LOCAL INFILE` statements with different load_ staging tables for file formats.
+First stage is performed in `LOAD DATA LOCAL INFILE` statements with file format data-driven selection of LOAD settings and load_ staging tables.
 
 Second stage is performed in parsing modules: `parse_access_apache, parse_access_nginx, parse_error_apache, parse_error_nginxprocess_access_parse` 
 
-HTTP Access and Error data is imported and normalized in MySQL modules: `import_access_apache, import_access_nginx, import_error_apache, import_error_nginx`
+HTTP Access and Error data nrmalization and import is done in MySQL modules: `import_access_apache, import_access_nginx, import_error_apache, import_error_nginx`
 
-Client IP GeoData is retrieved with Python but data is normalizaion in MySQL module: `normalize_client`
+Client IP GeoData is retrieved with Python. Data normalization & import is done in MySQL module: `normalize_client`
 
-User Agent String is parsed with Python but data is normalizaion in MySQL module: `normalize_useragent`
+User Agent String is parsed with Python. Data normalization & import is done in MySQL module: `normalize_useragent`
 
 Access and Error data is imported and normalized in modules: `import_access_apache, import_access_nginx, import_error_apache, import_error_nginx` Stored Procedures.
 
