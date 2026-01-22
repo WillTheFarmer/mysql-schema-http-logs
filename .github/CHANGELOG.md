@@ -1,0 +1,2 @@
+- [1.0.0] - 10/31/2024 - the first github release of http-logs-to-mysql
+- [4.0.0] - 01/21/2026 - separation of python app code and database schema code from http-logs-to-mysql repository
