@@ -4,7 +4,7 @@
 Every script and build file used in database application development is here. Individual Function and Procedure files make applying modifications much simplier. The Python build script assembles hundreds of SQL filess together into the single `create_http_logs.sql` file that creates the entire MySQL schema and is included in the Python application repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
 
 ## Database runs on MySQL & MariaDB
-Python handles polling of log file folders and executing Database LOAD DATA, Stored Procedures, Stored Functions and SQL Statements. Python drives the application but MySQL or MariaDB does all Data Manipulation & Processing.
+Python handles polling of log file folders and executing Database LOAD DATA, Procedures, Functions and SQL Statements. Python drives the application but MySQL or MariaDB does all Data Manipulation & Processing.
 
 This is a fast, reliable processing application with detailed logging and two stages of data parsing.
 
