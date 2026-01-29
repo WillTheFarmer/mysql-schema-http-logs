@@ -1,8 +1,16 @@
-To contribute Issues or Errors found using application please create a `New issue` under repository `Issues` tab.
+MySQL stored procedure code for NGINX are a stripped down copy of Apache code. 
 
-To contribute Ideas or Comments please create a `New discussion` under repository `Discussions` tab.
+Only code for combined. I stripped out other formats. 
 
-If you find this code useful please contribute a :star: to the repository.
+`parse_acces_nginx.sql`, `import_access_nginx.sql`, `parse_error_nginx.sql`, `import_error_nginx.sql`
+
+are copies of:
+
+`parse_acces_apache.sql`, `parse_error_apache.sql`, `import_access_apache.sql`, `import_error_apache.sql`
+
+Anyone with NGINX log files who wants to contribute NGINX log format knowledge or import data results would be helpful and welcomed.
+
+Anyone with MySQL procedural and NGINX log format knowledge would be helpful.
 
 If you find this repository valuable to your database application development monetary contributions are appreciated. Repository has my ***Buy Me a Coffee*** :coffee: link.
 
