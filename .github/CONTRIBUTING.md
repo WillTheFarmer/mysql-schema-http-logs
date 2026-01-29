@@ -1,6 +1,8 @@
-MySQL stored procedure code for NGINX are a stripped down copy of Apache code. 
+Thoroughly researched and tested all Apache log formats. I have not done that for NGINX yet. I read documentation and several online sources. 
 
-Only code for combined. I stripped out other formats. 
+NGINX standard access and error format log files in `/data/nginx_combined/` and `/data/nginx_error/` are from a NGINX server.
+
+MySQL stored procedure code for NGINX are stripped down copies of Apache twin. Contains only code required for `combined` format.
 
 `parse_acces_nginx.sql`, `import_access_nginx.sql`, `parse_error_nginx.sql`, `import_error_nginx.sql`
 
