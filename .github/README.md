@@ -25,8 +25,6 @@ MySQL procedural files are copies of Apache code. Then stripped to code required
 
 `import_error_nginx.sql` started as copy of `import_error_apache.sql`
 
-Until Ground Hog Day I am full-time on Python Code cleanup and NGINX formats. When starting project I thoroughly researched and tested all Apache log formats. I have not done any of that for NGINX other than read documentation. The repository data NGINX log files are from any NGINX server. 
-
 Creates the MySQL schema included in repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
 
 ### 2. Database
