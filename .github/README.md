@@ -3,14 +3,14 @@
 ## DDL for tables, indexes, views, function, procedures & constraints
 All SQL files and Python build file used in schema database application development is here. Individual Function and Procedure files make applying modifications much simplier in Visual Studio Code.
 
-The Python build script assembles all SQL script files together into the single `create_http_logs.sql` file that is included in repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
+The Python build script assembles all SQL script files together into the single `create_http_logs.sql` file that is included in repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql) repository.
 
 ### 1. NGINX formats and procedural code
-Apache log formats have been thoroughly researched and tested. NGINX formats have not been tested yet.
+From documentation read NGINX standard access logformat is same as Apache combined. I have not verified by examining NGINX data yet.
 
-From documentation read NGINX standard logformat is same as Apache combined. I have not verified by examining NGINX data yet.
+Apache log formats have been thoroughly researched and tested. NGINX log formats have not.
 
-***Repository NGINX files are standard access and error formats from new NGINX server*** 
+Repository NGINX files are standard access and error formats from new NGINX server
 
 NGINX log files in `/data/nginx_combined/` and `/data/nginx_error/` are from new NGINX server.
 
@@ -23,8 +23,6 @@ NGINX Stored Procedures are copies of Apache Stored Procedures and then stripped
 `parse_error_nginx.sql` started as copy of `parse_error_apache.sql`
 
 `import_error_nginx.sql` started as copy of `import_error_apache.sql`
-
-Creates the MySQL schema 
 
 ### 2. Database
 Before running `create_http_logs.sql` if User Account `root`@`localhost` does not exist on installation server open 
