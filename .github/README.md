@@ -3,19 +3,18 @@
 ## DDL for tables, indexes, views, function, procedures & constraints
 All SQL files and Python build file used in schema database application development is here. Individual Function and Procedure files make applying modifications much simplier in Visual Studio Code.
 
-The Python build script assembles all SQL script files together into the single `create_http_logs.sql` file.
+The Python build script assembles all SQL script files together into the single `create_http_logs.sql` file that is included in repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
 
-NGINX Stored Procedures are copies of Apache Stored Procedures stripped for Combined `combined` only - `FIND_IN_SET(in_processName, "csv2mysql,vhost,combined") = 0`. 
+### 1. NGINX formats and procedural code
+Apache log formats have been thoroughly researched and tested. NGINX formats have not been tested yet.
 
-I stripped the other format code as starting point. From documentation I read NGINX standard is same as Apache combined. I have not not examined NGINX data yet.
-
-Thoroughly researched and tested all Apache log formats. I read documentation and online sources. I have not done that for NGINX yet.
+From documentation read NGINX standard logformat is same as Apache combined. I have not verified by examining NGINX data yet.
 
 ***Repository NGINX files are standard access and error formats from new NGINX server*** 
 
 NGINX log files in `/data/nginx_combined/` and `/data/nginx_error/` are from new NGINX server.
 
-MySQL procedural files are copies of Apache code. Then stripped to code required to process `combined` format. 
+NGINX Stored Procedures are copies of Apache Stored Procedures and then stripped code down to process `combined` format only.
 
 `parse_access_nginx.sql` started as copy of `parse_access_apache.sql`
 
@@ -25,7 +24,7 @@ MySQL procedural files are copies of Apache code. Then stripped to code required
 
 `import_error_nginx.sql` started as copy of `import_error_apache.sql`
 
-Creates the MySQL schema included in repository [httpLogs2MySQL](https://github.com/willthefarmer/http-logs-to-mysql).
+Creates the MySQL schema 
 
 ### 2. Database
 Before running `create_http_logs.sql` if User Account `root`@`localhost` does not exist on installation server open 
