@@ -14,15 +14,7 @@ Repository NGINX files are standard access and error formats from new NGINX serv
 
 NGINX log files in `/data/nginx_combined/` and `/data/nginx_error/` are from new NGINX server.
 
-NGINX Stored Procedures are copies of Apache Stored Procedures and then stripped code down to process `combined` format only.
-
-`parse_access_nginx.sql` started as copy of `parse_access_apache.sql`
-
-`import_access_nginx.sql` started as copy of `import_access_apache.sql`
-
-`parse_error_nginx.sql` started as copy of `parse_error_apache.sql`
-
-`import_error_nginx.sql` started as copy of `import_error_apache.sql`
+Each log format has a Stored Procedure. More information will be added over new few days. 
 
 ### 2. Database
 Before running `create_http_logs.sql` if User Account `root`@`localhost` does not exist on installation server open 
