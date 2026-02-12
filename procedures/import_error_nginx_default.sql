@@ -1,8 +1,8 @@
 -- drop procedure -----------------------------------------------------------
-DROP PROCEDURE IF EXISTS `import_error_apache`;
+DROP PROCEDURE IF EXISTS `import_error_nginx_default`;
 -- create procedure ---------------------------------------------------------
 DELIMITER //
-CREATE DEFINER = `root`@`localhost` PROCEDURE `import_error_apache`
+CREATE DEFINER = `root`@`localhost` PROCEDURE `import_error_nginx_default`
 (
   IN in_processName VARCHAR(100),
   IN in_importLoadID VARCHAR(20)
@@ -10,7 +10,7 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `import_error_apache`
 BEGIN
   -- module_name = moduleName column in import_process - to id procedure is being run
   -- in_processName = processName column in import_process - to id procedure OPTION is being run
-  DECLARE module_name VARCHAR(255) DEFAULT 'import_error_apache';
+  DECLARE module_name VARCHAR(255) DEFAULT 'import_error_nginx_default';
   -- standard variables for processes
   DECLARE e1 INT UNSIGNED;
   DECLARE e2, e3 VARCHAR(128);
@@ -84,14 +84,14 @@ BEGIN
              f.server_name server_name_file,
              f.server_port server_port_file,
              l.id
-        FROM load_error_apache_default l
+        FROM load_error_nginx_default l
   INNER JOIN import_file f
           ON l.importfileid = f.id
        WHERE l.process_status = 1
          AND f.importloadid = importLoad_ID;
   DECLARE defaultByLoadIDFile CURSOR FOR
       SELECT DISTINCT(l.importfileid)
-        FROM load_error_apache_default l
+        FROM load_error_nginx_default l
   INNER JOIN import_file f
           ON l.importfileid = f.id
        WHERE l.process_status = 1
@@ -117,13 +117,13 @@ BEGIN
              f.server_name server_name_file,
              f.server_port server_port_file,
              l.id
-        FROM load_error_apache_default l
+        FROM load_error_nginx_default l
   INNER JOIN import_file f
           ON l.importfileid = f.id
        WHERE l.process_status = 1;
   DECLARE defaultByStatusFile CURSOR FOR
      SELECT DISTINCT(l.importfileid)
-       FROM load_error_apache_default l
+       FROM load_error_nginx_default l
  INNER JOIN import_file f
          ON l.importfileid = f.id
       WHERE l.process_status = 1;
@@ -132,7 +132,7 @@ BEGIN
   DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
       GET DIAGNOSTICS CONDITION 1 e1 = MYSQL_ERRNO, e2 = MESSAGE_TEXT, e3 = RETURNED_SQLSTATE, e4 = SCHEMA_NAME, e5 = CATALOG_NAME;
-      CALL messageProcess('import_error_apache', e1, e2, e3, e4, e5, importLoad_ID, importProcessID);
+      CALL messageProcess('import_error_nginx', e1, e2, e3, e4, e5, importLoad_ID, importProcessID);
       SET processErrors = processErrors + 1;
       ROLLBACK;
     END;
@@ -146,6 +146,7 @@ BEGIN
   IF NOT CONVERT(in_importLoadID, UNSIGNED) = 0 THEN
     SET importLoad_ID = CONVERT(in_importLoadID, UNSIGNED);
   END IF;
+
   IF NOT CONVERT(in_importLoadID, UNSIGNED) = 0 THEN
     SELECT importloadid 
       INTO importLoad_ID
@@ -156,7 +157,7 @@ BEGIN
   IF importLoad_ID IS NULL THEN
     SELECT COUNT(DISTINCT(f.importloadid))
       INTO loads_processed
-      FROM load_error_apache_default l
+      FROM load_error_nginx_default l
 INNER JOIN import_file f
         ON l.importfileid = f.id
      WHERE l.process_status = 1;
@@ -356,7 +357,7 @@ INNER JOIN import_file f
         serverPort_Id,
         requestLog_Id,
         importFile_ID);
-    UPDATE load_error_apache_default SET process_status=2 WHERE id=importRecordID;
+    UPDATE load_error_nginx_default SET process_status=2 WHERE id=importRecordID;
   END LOOP process_import;
   -- to remove SQL calculating loads_processed when importLoad_ID is passed. Set=1 by default.
   IF importLoad_ID IS NOT NULL AND records_processed=0 THEN
