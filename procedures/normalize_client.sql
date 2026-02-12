@@ -61,8 +61,8 @@ BEGIN
   IF CONVERT(in_importLoadID, UNSIGNED) = 0 AND in_importLoadID != 'ALL' THEN
     SIGNAL SQLSTATE '22003' SET MESSAGE_TEXT = 'Invalid parameter value for in_importLoadID. Must be convert to number or be ALL';
   END IF;
-  IF LENGTH(in_processName) < 8 THEN
-    SIGNAL SQLSTATE '22003' SET MESSAGE_TEXT = 'Invalid parameter value for in_processName. Must be minimum of 8 characters';
+  IF LENGTH(in_processName) < 6 THEN
+    SIGNAL SQLSTATE '22003' SET MESSAGE_TEXT = 'Invalid parameter value for in_processName. Must be minimum of 6 characters';
   END IF;
   IF NOT CONVERT(in_importLoadID, UNSIGNED) = 0 THEN
     SELECT importloadid 

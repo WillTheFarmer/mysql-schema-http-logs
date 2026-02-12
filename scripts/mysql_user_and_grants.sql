@@ -9,12 +9,12 @@ GRANT EXECUTE ON PROCEDURE parse_access_apache_vhost TO `http_upload`@`localhost
 GRANT EXECUTE ON PROCEDURE import_access_apache_vhost TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE parse_access_apache_csv2mysql TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE import_access_apache_csv2mysql TO `http_upload`@`localhost`;
-GRANT EXECUTE ON PROCEDURE parse_error_apache TO `http_upload`@`localhost`;
-GRANT EXECUTE ON PROCEDURE import_error_apache TO `http_upload`@`localhost`;
+GRANT EXECUTE ON PROCEDURE parse_error_apache_default TO `http_upload`@`localhost`;
+GRANT EXECUTE ON PROCEDURE import_error_apache_default TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE parse_access_nginx_default TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE import_access_nginx_default TO `http_upload`@`localhost`;
-GRANT EXECUTE ON PROCEDURE parse_error_nginx TO `http_upload`@`localhost`;
-GRANT EXECUTE ON PROCEDURE import_error_nginx TO `http_upload`@`localhost`;
+GRANT EXECUTE ON PROCEDURE parse_error_nginx_default TO `http_upload`@`localhost`;
+GRANT EXECUTE ON PROCEDURE import_error_nginx_default TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE normalize_useragent TO `http_upload`@`localhost`;
 GRANT EXECUTE ON PROCEDURE normalize_client TO `http_upload`@`localhost`;
 -- Python module CALLS Stored Procedures for error logging
