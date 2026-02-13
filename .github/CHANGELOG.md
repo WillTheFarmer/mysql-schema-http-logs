@@ -1,3 +1,4 @@
 - [1.0.0] - 10/31/2024 - the first github release of http-logs-to-mysql
 - [4.0.0] - 01/21/2026 - separation of python app code and database schema code from http-logs-to-mysql repository
-- [4.0.1] - 02/03/2026 - Groundhog - divided repositories caused some incorrect file versions being uploaded. All code uploaded is now latest. Working on data_file_loader.py updates now that completes re-write. separate Stored procedure for Each log format.
+- [4.0.1] - 01/24/2026 - Groundhog - divided repositories caused some incorrect file versions being uploaded. All code uploaded is now latest. Working on data_file_loader.py updates now that completes re-write. separate Stored procedure for Each log format.
+- [4.0.2] - 02/13/2026 - INT to BIGINT, PyMSQL to MySQLdb, mysql procedures for each server & format, refinement of naming convention from load, parse and import - see changelog

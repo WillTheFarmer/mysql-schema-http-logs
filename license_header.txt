@@ -6,7 +6,7 @@
 -- #
 -- #     http://www.http.org/licenses/LICENSE-2.0
 -- #
--- # version 4.0.0 - 01/21/2026 - separation of python app code and database schema code from http-logs-to-mysql repository - see changelog
+-- # version 4.0.2 - 02/13/2026 - INT to BIGINT, PyMSQL to MySQLdb, mysql procedures for each server & format, refinement of naming convention from load, parse and import - see changelog
 -- #
 -- # CHANGELOG.md in repository - https://github.com/WillTheFarmer/mysql-schema-http-logs
 -- #
