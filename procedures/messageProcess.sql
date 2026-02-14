@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS `messageProcess`;
 -- create function -----------------------------------------------------------
 DELIMITER //
 CREATE DEFINER = `root`@`localhost` PROCEDURE `messageProcess`
-  (IN in_module VARCHAR(300),
+  (IN in_module_name VARCHAR(300),
    IN in_mysqlerrno INTEGER, 
    IN in_messagetext VARCHAR(1000), 
    IN in_returnedsqlstate VARCHAR(250), 
@@ -22,7 +22,7 @@ BEGIN
       importloadid,
       importprocessid)
    VALUES
-     (in_module,
+     (in_module_name,
       in_mysqlerrno,
       in_messagetext,
       in_returnedsqlstate,

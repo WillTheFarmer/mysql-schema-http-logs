@@ -37,5 +37,6 @@ GRANT INSERT ON load_error_nginx_default TO `http_upload`@`localhost`;
 -- Python module issues SELECT and UPDATE statements on TABLES due to converting parameters.
 -- Only reason TABLE direct access is number of parameters required for Stored Procedure.
 GRANT SELECT,UPDATE ON access_log_useragent TO `http_upload`@`localhost`;
+GRANT SELECT,UPDATE ON import_process TO `http_upload`@`localhost`;
 GRANT SELECT,UPDATE ON import_load TO `http_upload`@`localhost`;
 GRANT SELECT,UPDATE ON log_client TO `http_upload`@`localhost`;

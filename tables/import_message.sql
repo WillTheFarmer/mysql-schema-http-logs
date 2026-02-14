@@ -4,7 +4,7 @@ CREATE TABLE `import_message` (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   importloadid INT UNSIGNED DEFAULT NULL,
   importprocessid INT UNSIGNED DEFAULT NULL,
-  module_name VARCHAR(300) NULL,
+  module_name VARCHAR(255) NULL,
   message_code SMALLINT UNSIGNED NULL,
   message_text VARCHAR(1000) NULL,
   returned_sqlstate VARCHAR(250) NULL,

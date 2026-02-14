@@ -8,9 +8,9 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `parse_access_apache_csv2mysql`
   IN in_importLoadID VARCHAR(20)
 )
 BEGIN
-  -- module_name = moduleName column in import_process - to id procedure is being run
-  -- in_processName = processName column in import_process - to id procedure OPTION is being run
-  DECLARE module_name VARCHAR(255) DEFAULT 'parse_access_apache_csv2mysql';
+  -- module_name_process = module_name column in import_process - to id procedure is being run
+  -- in_processName = process_name column in import_process - to id procedure OPTION is being run
+  DECLARE module_name_process VARCHAR(255) DEFAULT 'parse_access_apache_csv2mysql';
   -- standard variables for processes
   DECLARE e1 INT UNSIGNED;
   DECLARE e2, e3 VARCHAR(128);
@@ -83,7 +83,7 @@ BEGIN
       FROM import_process
      WHERE id = in_importLoadID;
   END IF;
-  SET importProcessID = importServerProcessID( module_name, in_processName, importLoad_ID);
+  SET importProcessID = importServerProcessID( module_name_process, in_processName, importLoad_ID);
   IF importLoad_ID IS NULL THEN
         SELECT COUNT(DISTINCT(f.importloadid))
           INTO loads_processed
@@ -155,6 +155,8 @@ BEGIN
          loads_processed = loads_processed,
          completed = now(),
          error_count = processErrors,
+         module_name = module_name_process,
+         process_name = in_processName,
          process_seconds = TIME_TO_SEC(TIMEDIFF(now(), started))
    WHERE id = importProcessID;
   COMMIT;

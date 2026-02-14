@@ -8,9 +8,9 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `parse_access_apache_combined`
   IN in_importLoadID VARCHAR(20)
 )
 BEGIN
-  -- module_name = moduleName column in import_process - to id procedure is being run
-  -- in_processName = processName column in import_process - to id procedure OPTION is being run
-  DECLARE module_name VARCHAR(255) DEFAULT 'parse_access_apache_combined';
+  -- module_name_process = module_name column in import_process - to id procedure is being run
+  -- in_processName = process_name column in import_process - to id procedure OPTION is being run
+  DECLARE module_name_process VARCHAR(255) DEFAULT 'parse_access_apache_combined';
   -- standard variables for processes
   DECLARE e1 INT UNSIGNED;
   DECLARE e2, e3 VARCHAR(128);
@@ -86,7 +86,7 @@ BEGIN
   DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
       GET DIAGNOSTICS CONDITION 1 e1 = MYSQL_ERRNO, e2 = MESSAGE_TEXT, e3 = RETURNED_SQLSTATE, e4 = SCHEMA_NAME, e5 = CATALOG_NAME;
-      CALL messageProcess( module_name, e1, e2, e3, e4, e5, importLoad_ID, importProcessID);
+      CALL messageProcess( module_name_process, e1, e2, e3, e4, e5, importLoad_ID, importProcessID);
       SET processErrors = processErrors + 1;
       ROLLBACK;
     END;
@@ -103,7 +103,7 @@ BEGIN
       FROM import_process
      WHERE id = in_importLoadID;
   END IF;
-  SET importProcessID = importServerProcessID( module_name, in_processName, importLoad_ID);
+  SET importProcessID = importServerProcessID( module_name_process, in_processName, importLoad_ID);
   IF importLoad_ID IS NULL THEN
         SELECT COUNT(DISTINCT(f.importloadid))
           INTO loads_processed
@@ -234,6 +234,8 @@ BEGIN
          loads_processed = loads_processed,
          completed = now(),
          error_count = processErrors,
+         module_name = module_name_process,
+         process_name = in_processName,
          process_seconds = TIME_TO_SEC(TIMEDIFF(now(), started))
    WHERE id = importProcessID;
   COMMIT;

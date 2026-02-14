@@ -3,8 +3,8 @@ DROP FUNCTION IF EXISTS `importServerProcessID`;
 -- create function -----------------------------------------------------------
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` FUNCTION `importServerProcessID`
-  (module_name VARCHAR(100),
-   process_name VARCHAR(100),
+  (in_module_name VARCHAR(100),
+   in_process_name VARCHAR(100),
    passed_importprocessid INT
   ) 
   RETURNS INT
@@ -59,20 +59,20 @@ BEGIN
     -- ID exists, perform actions
       SET importProcess_ID = passed_importProcess_ID;
       UPDATE import_process
-         SET moduleName = module_name,
-             processName = process_name,
+         SET module_name = in_module_name,
+             process_name = in_process_name,
              importserverid = importServer_ID
        WHERE id = importProcess_ID;
 --      COMMIT;
   ELSE
     -- ID does not exist, perform different actions
       INSERT INTO import_process
-          (moduleName,
-           processName,
-           importserverid)
-        VALUES
           (module_name,
            process_name,
+           importserverid)
+        VALUES
+          (in_module_name,
+           in_process_name,
            importServer_ID);
 
       SET importProcess_ID = LAST_INSERT_ID();
