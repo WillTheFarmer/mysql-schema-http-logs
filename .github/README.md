@@ -59,7 +59,7 @@ Each imported file has record with name, path, size, created, modified attribute
 ## Application runs on Windows, Linux & MacOS
 ![json Config Lists](./images/json_config_lists.png)
 ## Python handles File Processing & Database handles Data Processing
-The Python application repository is [log-files-to-mysql](https://github.com/willthefarmer/log-files-to-mysql) which is a JSON data-driven Python application to automate importing Access & Error files, normalizing log data into database and generating a well-documented data lineage audit trail.
+The Python application repository is [files-to-mysql](https://github.com/willthefarmer/files-to-mysql) which is a JSON data-driven Python application to automate importing Access & Error files, normalizing log data into database and generating a well-documented data lineage audit trail.
 
 Multiple Access and Error logs and formats can be loaded, parsed and imported along with User Agent parsing and IP Address Geolocation retrieval processes within a single `main:process_files` execution. 
 
