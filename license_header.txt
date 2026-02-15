@@ -11,4 +11,4 @@
 -- # CHANGELOG.md in repository - https://github.com/WillTheFarmer/mysql-schema-http-logs
 -- #
 -- requires minimum versions MySQL 8.0.41 or MariaDB 10.5.26
--- synopsis: Data Definition (DDL) & Data Manipulation (DML) for MySQL & MariaDB schema for httpLogs2MySQL
+-- synopsis: Data Definition (DDL) & Data Manipulation (DML) for MySQL & MariaDB schema
