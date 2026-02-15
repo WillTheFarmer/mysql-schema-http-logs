@@ -8,7 +8,7 @@
 -- #
 -- # version 4.0.2 - 02/13/2026 - INT to BIGINT, PyMSQL to MySQLdb, mysql procedures for each server & format, refinement of naming convention from load, parse and import - see changelog
 -- #
--- # CHANGELOG.md in repository - https://github.com/WillTheFarmer/mysql-schema-http-logs
+-- # CHANGELOG.md in repository - https://github.com/WillTheFarmer/mysql-http-logs
 -- #
 -- requires minimum versions MySQL 8.0.41 or MariaDB 10.5.26
 -- synopsis: Data Definition (DDL) & Data Manipulation (DML) for MySQL & MariaDB schema
