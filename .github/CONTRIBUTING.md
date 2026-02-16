@@ -8,7 +8,7 @@ To contribute HTTP Access or Error Log Formats commonly used that application sh
 
 If you find this repository valuable to your database application development monetary contributions are appreciated. Repository has my ***Buy Me a Coffee*** :coffee: link.
 
-Monetary :moneybag: contributions made will encourage [Web Interface](https://github.com/WillTheFarmer/mysql-to-echarts) repository development continuation for this MySQL or MariaDB schema populated by [logFiles2MySQL](https://github.com/willthefarmer/http-logs-to-mysql) repository.
+Monetary :moneybag: contributions made will encourage [Web Interface](https://github.com/WillTheFarmer/mysql-to-echarts) repository development continuation for this MySQL or MariaDB schema populated by [files-to-mysql](https://github.com/willthefarmer/files-to-mysql) repository.
 
 This repository exists because I volunteer at local nonprofit that provides food and clothing for those in need. The Director is familiar with MySQL and wanted to import Apache website logs into MySQL tables. At that meeting I knew little about Apache but lots about MySQL. I thought it would be a couple days to research existing solutions and offered to investigate.
 

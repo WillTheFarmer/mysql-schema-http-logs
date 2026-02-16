@@ -34,6 +34,6 @@ BEGIN
       messageInt,
       loadID,
       processID,
-      'http-logs-to-mysql');
+      'files-to-mysql');
 END //
 DELIMITER ;
