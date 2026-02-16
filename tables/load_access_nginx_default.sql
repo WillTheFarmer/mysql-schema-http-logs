@@ -1,9 +1,6 @@
 DROP TABLE IF EXISTS `load_access_nginx_default`;
 -- create table ---------------------------------------------------------
 -- Format: $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent".
-
--- LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
--- LogFormat "%h %l %u %t \"%r\" %>s %O" common
 CREATE TABLE `load_access_nginx_default` (
     remote_host VARCHAR(300) DEFAULT NULL COMMENT '253 characters is the maximum length of full domain name. Renamed as client and clientport in normalization to share with Error Logs',
     remote_logname VARCHAR(150) DEFAULT NULL COMMENT 'This will return a dash unless mod_ident is present and IdentityCheck is set On.',
@@ -23,7 +20,7 @@ CREATE TABLE `load_access_nginx_default` (
     req_query VARCHAR(3390) DEFAULT NULL COMMENT 'parsed from first_line_request in import. Can not make 5000 due to table max length. From reviewing 3 years of production logs no query strings were over 2165.',
     server_name VARCHAR(253) DEFAULT NULL COMMENT 'Common & Combined logs. Added to populate Server for multiple domains import. Must be poulated before import process.',
     server_port INT DEFAULT NULL COMMENT 'Common & Combined logs. Added to populate ServerPort for multiple domains import. Must be poulated before import process.',
-    importfileid INT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
+    importfileid BIGINT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
     process_status INT NOT NULL DEFAULT 0 COMMENT 'used in parse and import processes to indicate record processed - 1=parsed, 2=imported',
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Used for LOAD DATA command for LogFormat combined and common to bring text files into MySQL and start the process.';

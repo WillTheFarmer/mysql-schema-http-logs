@@ -21,7 +21,7 @@ CREATE TABLE `load_access_apache_combined` (
     req_query VARCHAR(3390) DEFAULT NULL COMMENT 'parsed from first_line_request in import. Can not make 5000 due to table max length. From reviewing 3 years of production logs no query strings were over 2165.',
     server_name VARCHAR(253) DEFAULT NULL COMMENT 'Common & Combined logs. Added to populate Server for multiple domains import. Must be poulated before import process.',
     server_port INT DEFAULT NULL COMMENT 'Common & Combined logs. Added to populate ServerPort for multiple domains import. Must be poulated before import process.',
-    importfileid INT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
+    importfileid BIGINT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
     process_status INT NOT NULL DEFAULT 0 COMMENT 'used in parse and import processes to indicate record processed - 1=parsed, 2=imported',
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Used for LOAD DATA command for LogFormat combined and common to bring text files into MySQL and start the process.';

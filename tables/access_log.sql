@@ -25,6 +25,6 @@ CREATE TABLE `access_log` (
     remotelognameid INT UNSIGNED DEFAULT NULL,
     cookieid INT UNSIGNED DEFAULT NULL,
     useragentid INT UNSIGNED DEFAULT NULL,
-    importfileid INT UNSIGNED NOT NULL,
+    importfileid BIGINT UNSIGNED NOT NULL,
     added DATETIME NOT NULL DEFAULT NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Table is core table for access logs and contains foreign keys to relate to log attribute tables.';

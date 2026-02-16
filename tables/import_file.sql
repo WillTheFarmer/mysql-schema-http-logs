@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `import_file`;
 -- create table ---------------------------------------------------------
 CREATE TABLE `import_file` (
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(300) NOT NULL,
   importdeviceid INT UNSIGNED NOT NULL,
   importloadid INT UNSIGNED NOT NULL,

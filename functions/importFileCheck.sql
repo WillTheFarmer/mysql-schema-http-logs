@@ -3,7 +3,7 @@ DROP FUNCTION IF EXISTS `importFileCheck`;
 -- create function -----------------------------------------------------------
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` FUNCTION `importFileCheck`
-  (importfileid INT UNSIGNED,
+  (importfileid BIGINT UNSIGNED,
    processid INT UNSIGNED,
    processType VARCHAR(10)
   ) 

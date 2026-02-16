@@ -18,6 +18,6 @@ CREATE TABLE `error_log` (
     systemcodeid INT UNSIGNED DEFAULT NULL,
     systemmessageid INT UNSIGNED DEFAULT NULL,
     logmessageid INT UNSIGNED DEFAULT NULL,
-    importfileid INT UNSIGNED NOT NULL,
+    importfileid BIGINT UNSIGNED NOT NULL,
     added DATETIME NOT NULL DEFAULT NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -11,7 +11,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `importFileExists`
 BEGIN
   DECLARE e1 INT UNSIGNED;
   DECLARE e2, e3 VARCHAR(128);
-  DECLARE importFileID INT DEFAULT null;
+  DECLARE importfileid BIGINT DEFAULT null;
   DECLARE importDate DATETIME DEFAULT null;
   DECLARE importDays INT DEFAULT null;
   DECLARE importDevice_ID INT UNSIGNED DEFAULT null;

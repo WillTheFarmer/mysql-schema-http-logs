@@ -25,7 +25,7 @@ CREATE TABLE `load_access_apache_csv2mysql` (
     log_cookie VARCHAR(400) DEFAULT NULL COMMENT 'Use to store any Cookie VARNAME. ie - session ID in application cookie to relate with login tables on server.',
     request_log_id VARCHAR(50) DEFAULT NULL COMMENT 'The request log ID from the error log (or - if nothing has been logged to the error log for this request). Look for the matching error log line to see what request caused what error.',
     load_error VARCHAR(10) DEFAULT NULL COMMENT 'This column should always be NULL. Added to catch lines larger than designed for.',
-    importfileid INT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
+    importfileid BIGINT UNSIGNED DEFAULT NULL COMMENT 'used in import process to indicate file record extractedd from',
     process_status INT NOT NULL DEFAULT 0 COMMENT 'used in parse and import processes to indicate record processed - 1=parsed, 2=imported',
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Used for LOAD DATA command for LogFormat csv2mysql to bring text files into MySQL and start the process.';

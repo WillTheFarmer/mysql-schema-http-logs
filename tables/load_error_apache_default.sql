@@ -27,7 +27,7 @@ CREATE TABLE `load_error_apache_default` (
     server_name VARCHAR(253) DEFAULT NULL COMMENT 'Error logs. Added to populate Server for multiple domains import. Must be poulated before import process.',
     server_port INT DEFAULT NULL COMMENT 'Error logs. Added to populate ServerPort for multiple domains import. Must be poulated before import process.',
     request_log_id VARCHAR(50) DEFAULT NULL COMMENT 'Log ID of the request',
-    importfileid INT UNSIGNED DEFAULT NULL COMMENT 'FOREIGN KEY used in import process to indicate file record extracted from',
+    importfileid BIGINT UNSIGNED DEFAULT NULL COMMENT 'FOREIGN KEY used in import process to indicate file record extracted from',
     process_status INT NOT NULL DEFAULT 0 COMMENT 'used in parse and import processes to indicate record processed - 1=parsed, 2=imported',
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Table used for LOAD DATA command to bring text files into MySQL and start the process.';
